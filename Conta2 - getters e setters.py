@@ -28,10 +28,20 @@ class Conta:
     def set_limite(self, limite):
         self.__limite = limite
 
+
+    @staticmethod # Método estático
+    # Método estático é um método da classe
+    # Não precisa criar um objeto para acessar o método
+    def codigo_banco():
+        return "001"
+    
+
 conta = Conta(100, "Lucas", 150.0, 1000.0)
 conta.set_saldo(200.0)
 print("O limite atual é:",conta.get_saldo())
 
+print(Conta.codigo_banco()) 
+# Não é necessário uma instância da classe para chamar um método estático
 
 ## Utilizando o @property na classe Conta
 
