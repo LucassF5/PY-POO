@@ -31,3 +31,28 @@ class Conta:
 conta = Conta(100, "Lucas", 150.0, 1000.0)
 conta.set_saldo(200.0)
 print("O limite atual é:",conta.get_saldo())
+
+
+## Utilizando o @property na classe Conta
+
+#     @property
+#     def saldo(self):
+#         return self.__saldo
+#     @saldo.setter
+#     def saldo(self, saldo):
+#         self.__saldo = saldo
+    
+#     @property
+#     def titular(self):
+#         return self.__titular
+    
+#     @property
+#     def limite(self):
+#         return self.__limite
+#     @limite.setter
+#     def limite(self, limite):
+#         self.__limite = limite
+
+# conta = Conta(100, "Lucas", 150.0, 1000.0)
+# conta.saldo = 200.0
+# print("O limite atual é:",conta.saldo)
