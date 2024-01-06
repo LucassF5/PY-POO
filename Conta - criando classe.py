@@ -24,8 +24,16 @@ class Conta:
     def deposita(self, valor):
         self.__saldo += valor
 
+    def __pode_sacar(self, valor_a_sacar): # método privado
+        valor_disponivel = self.__saldo + self.__limite
+        return valor_a_sacar <= valor_disponivel
+
     def saca(self, valor):
-        self.__saldo -= valor
+        if self.__pode_sacar(valor):
+            self.__saldo -= valor
+            print(f"Saque de {valor} reais realizado com sucesso\n")
+        else:
+            print(f"O valor {valor} passou o limite")
 
     def transfrere(self, valor, destino):
         self.saca(valor)
@@ -50,3 +58,7 @@ conta2.extrato()
 conta.transfrere(50, conta2)
 conta.extrato()
 conta2.extrato()
+
+conta.saca(2000)
+conta.saca(200)
+conta.extrato()
