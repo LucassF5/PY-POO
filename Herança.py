@@ -44,3 +44,15 @@ RK = Serie("Rick and Morty", 2013, 7) # Added "duracao" argument
 
 print(f"Nome: {Vingadores.nome} - Ano: {Vingadores.ano} - Duração: {Vingadores.duracao} minutos - Likes: {Vingadores.likes}")
 print(f"Nome: {RK._nome} - Ano: {RK.ano} - Temporadas: {RK.temporadas} - Likes: {RK._likes}")
+
+playlist = [Vingadores, RK]
+
+for programa in playlist:
+    detalhes = programa.duracao if hasattr(programa, "duracao") else programa.temporadas
+    # hasattr() verifica se o objeto possui o atributo passado como argumento
+    # hasattr(objeto, atributo)
+    print(f" {programa._nome} - {programa.ano} - {detalhes} - {programa._likes}")
+
+# Se duas classes possuem o mesmo pai por herança
+# Pode-se utilizar polimosfismo para utilizar métodos iguais de forma diferente
+# E essa classe filha pode ser utilizada como se fosse a classe pai
