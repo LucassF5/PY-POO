@@ -1,4 +1,23 @@
+"""
+                    Duck Typing
+Duck Typing é um termo em inglês que significa “tipagem de pato”.
+O termo surgiu devido ao seguinte trecho de código em Python:
+Se um objeto anda como um pato e faz quack como um pato, então é um pato.
+Ou seja, não importa a classe do objeto, se ele possui os métodos e atributos
+que estamos procurando, então ele pode ser usado como se fosse da classe que
+estamos procurando. Isso é o Duck Typing.
 
+                    Composição x Extensão
+Composição: Quando uma classe é composta por outra classe
+Quando uma classe é composta por outra classe, 
+ela não herda os métodos e atributos da classe que está sendo composta
+Porém utiliza os métodos e atrinutos desta que faz a composição
+
+Extensão: Quando uma classe herda de outra classe
+Quando uma classe herda de outra classe, 
+ela herda os métodos e atributos da classe que está sendo herdada
+Srndo ligada intrinsecamente à classe que está sendo herdada/ligada
+"""
 class Programa:
     def __init__(self, nome, ano):
         self._nome = nome.title()
@@ -55,9 +74,12 @@ class Playlist:
     def listagem(self):
         return self._programas
     
-    @property
-    def tamanho(self):
+    def __len__(self): # método que retorna o tamanho da instância
         return len(self._programas)
+
+    def __getitem__(self, item): # método que permite ser iterável
+        # __getitem passa um item para a instância e a deixa iterável
+        return self._programas[item]
 
     
 
@@ -77,9 +99,9 @@ filmes_e_series = [vingadores, rick_morty, atlanta, demolidor]
 
 playlist = Playlist("Fim de semana", filmes_e_series)
 
-print(f"Tamanho da playlist: {playlist.tamanho}")
+print(f"Tamanho da playlist: {playlist.__len__()}")
 
-# for programa in playlist:
-#     print(programa)
+for programa in playlist:
+    print(programa)
 
 print(f"Está ou não está? {demolidor in playlist.listagem}") # Verificando se o objeto está na playlist
