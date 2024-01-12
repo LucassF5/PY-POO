@@ -74,6 +74,9 @@ class Playlist:
     def listagem(self):
         return self._programas
     
+    # Utilizando Duck Typing
+    # Fazendo a classe se comportar com métodos de lista
+    
     def __len__(self): # método que retorna o tamanho da instância
         return len(self._programas)
 
