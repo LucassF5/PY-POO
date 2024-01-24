@@ -1,5 +1,14 @@
-url = "https://bytebank.com/cambio?moedaOrigem=real&quantidade=100&moedaDestino=dolar&quantidade=100"
-print(url)
+# url = "https://bytebank.com/cambio?moedaOrigem=real&quantidade=100&moedaDestino=dolar&quantidade=100"
+url = " "
+
+# Limpando a URL
+# url = url.replace(" ", "") # Substitui os espaços em branco
+url = url.strip() # Remove os espaços em branco no início e no fim da string
+
+if url == "": # Caso a URL esteja va vazia, lança um erro
+    raise ValueError("A URL está vazia")
+
+        #Separa base e parâmetros
 
 """
     Base da URL: https://bytebank.com
